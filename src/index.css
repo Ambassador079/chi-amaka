@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FFF8EE;
+    color: #1A0A00;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(26, 10, 0, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 107, 43, 0.2);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-orange text-white font-body font-semibold px-8 py-4 rounded-full text-lg shadow-glow transition-all duration-300 hover:scale-105 hover:shadow-glow-lg hover:bg-brand-red active:scale-95;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center gap-3 bg-[#25D366] text-white font-body font-semibold px-8 py-4 rounded-full text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:brightness-110 active:scale-95;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl text-brand-brown leading-tight;
+  }
+
+  .food-card {
+    @apply bg-white rounded-3xl overflow-hidden shadow-card transition-all duration-300 hover:scale-105 hover:shadow-glow;
+  }
+}
+
+/* Grain overlay texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FFF8EE; }
+::-webkit-scrollbar-thumb { background: #FF6B2B; border-radius: 3px; }
